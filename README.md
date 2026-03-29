@@ -106,7 +106,8 @@ npm run dist:linux
 
 ColaMD will evolve alongside the agent ecosystem:
 
-- v1.0 — Live file reload (current)
+- v1.1 — Live file reload, file associations, drag & drop, themes (current)
+- v1.2 — Cmd+click links, heading level switching
 - Future — Bidirectional sync, multi-file watching, agent activity indicators
 
 ## License
