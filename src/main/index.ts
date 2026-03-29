@@ -8,6 +8,7 @@ let currentFilePath: string | null = null
 let fileWatcher: FSWatcher | null = null
 let isInternalSave = false
 let debounceTimer: ReturnType<typeof setTimeout> | null = null
+let pendingFilePath: string | null = null
 
 function createWindow(): void {
   mainWindow = new BrowserWindow({
@@ -30,6 +31,13 @@ function createWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  mainWindow.webContents.on('did-finish-load', () => {
+    if (pendingFilePath) {
+      openFileFromPath(pendingFilePath)
+      pendingFilePath = null
+    }
+  })
 
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -359,6 +367,12 @@ function buildMenu(): void {
 
 app.whenReady().then(() => {
   buildMenu()
+
+  // Check command line args for file path (non-macOS, or macOS packaged)
+  const args = process.argv.slice(app.isPackaged ? 1 : 2)
+  const fileArg = args.find((arg) => !arg.startsWith('-'))
+  if (fileArg) pendingFilePath = fileArg
+
   createWindow()
 
   app.on('activate', () => {
@@ -372,7 +386,9 @@ app.on('window-all-closed', () => {
 
 app.on('open-file', (event, filePath) => {
   event.preventDefault()
-  if (mainWindow) {
+  if (mainWindow && mainWindow.webContents.isLoading() === false) {
     openFileFromPath(filePath)
+  } else {
+    pendingFilePath = filePath
   }
 })

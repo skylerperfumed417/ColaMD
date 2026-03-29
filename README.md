@@ -1,80 +1,84 @@
-<div align="center">
-
 # ColaMD
 
-A lightweight, fast, open-source WYSIWYG Markdown editor for everyone.
+**The Agent Native Markdown Editor.**
+
+Real-time collaboration between humans and AI agents — see your agent's changes as they happen.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub release](https://img.shields.io/github/release/marswaveai/colamd.svg)](https://github.com/marswaveai/colamd/releases)
 
-[Download](#download) | [Features](#features) | [Themes](#themes) | [Development](#development) | [中文](README_CN.md)
-
-</div>
+[Download](#download) | [Why ColaMD](#why-colamd) | [Features](#features) | [Development](#development) | [中文](README_CN.md)
 
 ---
 
-## What is ColaMD?
+## Why ColaMD?
 
-ColaMD is a **WYSIWYG Markdown editor** that is simple, fast, and free. No bloat, no distractions — just a beautiful writing experience.
+AI agents are rewriting how we work. They edit files, generate docs, and produce reports — all in Markdown.
 
-The market lacks a Markdown editor that is simultaneously **WYSIWYG + open source + actively maintained + lightweight**. ColaMD fills that gap.
+But how do you **watch** an agent work? You `cat` the file. You refresh your editor. You wait.
+
+**ColaMD changes this.** Open a `.md` file in ColaMD, let your agent edit it, and watch the content update in real-time — like pair programming with an AI. No refresh, no reload, no friction.
+
+This is what **Agent Native** means: built from the ground up for a world where humans and agents collaborate on the same files.
 
 ## Features
 
-- **True WYSIWYG** — Type Markdown, see rich text instantly. No split-pane preview needed.
-- **Lightweight** — Fast startup, small footprint, no bloat.
-- **File Hot Reload** — External changes (from AI agents, Git, other editors) are detected and synced in real-time.
-- **GitHub Flavored Markdown** — Full GFM support including tables, task lists, and strikethrough.
-- **Code Syntax Highlighting** — 15+ languages with Prism.js.
-- **Math Formulas** — KaTeX support for mathematical expressions.
-- **Theme System** — 4 built-in themes + import custom CSS themes.
-- **Export** — PDF, HTML, and copy as rich text.
-- **Outline Sidebar** — Auto-generated table of contents from headings.
+- **Live Agent Sync** — When an AI agent (Claude Code, Cursor, Copilot, etc.) modifies your `.md` file, ColaMD detects the change and refreshes instantly. This is the core feature.
+- **True WYSIWYG** — Type Markdown, see rich text. No split-pane preview.
+- **Minimal by Design** — No toolbar, no sidebar, no distractions. Just your content.
+- **Themes** — 4 built-in themes + import custom CSS. Elegant theme by default.
+- **Export** — PDF and HTML.
 - **Cross-platform** — macOS, Windows, Linux.
 
 ## Download
 
-> Coming soon — check [Releases](https://github.com/marswaveai/colamd/releases) for the latest builds.
+> Check [Releases](https://github.com/marswaveai/colamd/releases) for the latest builds.
 
-| Platform | Download |
-|----------|----------|
-| macOS    | `.dmg`   |
-| Windows  | `.exe`   |
+| Platform | Format |
+|----------|--------|
+| macOS    | `.dmg` |
+| Windows  | `.exe` |
 | Linux    | `.AppImage` / `.deb` |
 
-## Themes
+## How It Works
 
-ColaMD ships with 4 built-in themes:
+```
+┌─────────────┐     writes     ┌──────────────┐
+│  AI Agent   │ ──────────────▶│  .md file    │
+│ (Claude,    │                │              │
+│  Cursor...) │                └──────┬───────┘
+└─────────────┘                       │
+                                fs.watch detects
+                                      │
+                              ┌───────▼───────┐
+                              │    ColaMD     │
+                              │  auto-refresh │
+                              │   ✨ live!    │
+                              └───────────────┘
+```
 
-| Theme | Description |
-|-------|-------------|
-| **Light** | Clean, GitHub-inspired light theme (default) |
-| **Dark** | Easy on the eyes for night writing |
-| **Elegant** | Warm tones with serif typography |
-| **Newsprint** | Classic print-inspired reading experience |
+1. Open any `.md` file in ColaMD
+2. Let your AI agent edit that file
+3. Watch the content update in real-time
 
-You can also import any custom `.css` theme file via **Theme → Import Theme**.
+No configuration needed. It just works.
 
 ## What ColaMD Does NOT Do
 
-ColaMD is intentionally simple. It does not include:
+ColaMD is intentionally simple:
 
-- File manager / file tree / workspace
-- Knowledge base or note organization
-- Cloud sync or collaboration
-- AI features
-- Plugin system
+- No file manager or workspace
+- No cloud sync or collaboration
+- No AI features built in — it's a **viewer/editor** for AI-generated content
+- No plugin system
 
-It's a **Markdown editor**. That's it. And it does it well.
+One thing, done well.
+
+## Custom Themes
+
+ColaMD supports custom CSS themes. See the [`themes/`](themes/) folder for documentation on creating your own theme, or import any `.css` file via **Theme → Import Theme**.
 
 ## Development
-
-### Prerequisites
-
-- Node.js 18+
-- npm 9+
-
-### Setup
 
 ```bash
 git clone https://github.com/marswaveai/colamd.git
@@ -86,10 +90,6 @@ npm run dev
 ### Build
 
 ```bash
-# Build for all platforms
-npm run dist
-
-# Build for specific platform
 npm run dist:mac
 npm run dist:win
 npm run dist:linux
@@ -98,11 +98,16 @@ npm run dist:linux
 ### Tech Stack
 
 - **Electron** — Cross-platform desktop
-- **Milkdown** — WYSIWYG Markdown editing (ProseMirror-based)
+- **Milkdown** — WYSIWYG Markdown (ProseMirror-based)
 - **TypeScript** — Strict mode
-- **Vite** — Fast builds via electron-vite
-- **Prism.js** — Code syntax highlighting
-- **KaTeX** — Math rendering
+- **electron-vite** — Fast builds
+
+## Roadmap
+
+ColaMD will evolve alongside the agent ecosystem:
+
+- v1.0 — Live file reload (current)
+- Future — Bidirectional sync, multi-file watching, agent activity indicators
 
 ## License
 
@@ -110,8 +115,4 @@ npm run dist:linux
 
 ---
 
-<div align="center">
-
-Made with care by [marswave.ai](https://marswave.ai)
-
-</div>
+Built by [marswave.ai](https://marswave.ai) for the agent-native future.

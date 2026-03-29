@@ -1,4 +1,4 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer, webUtils } from 'electron'
 
 export interface ElectronAPI {
   openFile: () => Promise<{ path: string; content: string } | null>
@@ -8,6 +8,7 @@ export interface ElectronAPI {
   exportPDF: () => Promise<boolean>
   exportHTML: (html: string) => Promise<boolean>
   loadCustomTheme: () => Promise<string | null>
+  getPathForFile: (file: File) => string
   onFileChanged: (callback: (content: string) => void) => void
   onNewFile: (callback: () => void) => void
   onFileOpened: (callback: (data: { path: string; content: string }) => void) => void
@@ -28,6 +29,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   exportPDF: () => ipcRenderer.invoke('export-pdf'),
   exportHTML: (html: string) => ipcRenderer.invoke('export-html', html),
   loadCustomTheme: () => ipcRenderer.invoke('load-custom-theme'),
+  getPathForFile: (file: File) => webUtils.getPathForFile(file),
   onFileChanged: (callback: (content: string) => void) => {
     ipcRenderer.on('file-changed', (_event, content) => callback(content))
   },

@@ -28,14 +28,15 @@ async function init(): Promise<void> {
     if (css) applyTheme('custom', css)
   })
 
-  // Handle drag-and-drop of .md files
+  // Handle drag-and-drop of text files
   document.addEventListener('dragover', (e) => e.preventDefault())
   document.addEventListener('drop', async (e) => {
     e.preventDefault()
     const file = e.dataTransfer?.files[0]
     if (!file) return
-    if (!file.name.match(/\.(md|markdown|mdown|mkd|txt)$/i)) return
-    const result = await api.openFilePath(file.path)
+    const filePath = api.getPathForFile(file)
+    if (!filePath) return
+    const result = await api.openFilePath(filePath)
     if (result) setMarkdown(result.content)
   })
 }
