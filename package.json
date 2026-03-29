@@ -3,7 +3,10 @@
   "version": "1.1.1",
   "description": "The Agent Native Markdown Editor",
   "main": "dist/main/index.js",
-  "author": "marswave.ai",
+  "author": {
+    "name": "marswave.ai",
+    "email": "hello@marswave.ai"
+  },
   "license": "MIT",
   "homepage": "https://github.com/marswaveai/colamd",
   "repository": {
